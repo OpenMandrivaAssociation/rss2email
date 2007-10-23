@@ -1,7 +1,7 @@
 Name:           rss2email
-Version:        2.57
-Release:        %mkrel 2
-Summary:        A script that send mail for rss feed news 
+Version:        2.60
+Release:        %mkrel 1
+Summary:        A script that send mail for rss feed news
 Group:          Networking/News
 License:        GPL
 URL:            http://www.aaronsw.com/2002/rss2email/
@@ -11,12 +11,11 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildArch:      noarch
 Requires:       python-feedparser
 %description
-rss2email is a simple Python script that lets you subscribe to a list of XML 
+rss2email is a simple Python script that lets you subscribe to a list of XML
 newsfeeds (RSS or Atom) and get new items sent to you by email.
 
 %prep
 %setup -q -n %{name}
-%patch -p0
 
 %install
 rm -rf $RPM_BUILD_ROOT
