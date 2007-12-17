@@ -7,7 +7,6 @@ License:        GPL
 URL:            http://www.aaronsw.com/2002/rss2email/
 Source0:        http://ftp.debian.org/debian/pool/main/r/%{name}/%{name}_%{version}.orig.tar.bz2
 Patch:          rss2email-2.54-add_header_feed_url.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildArch:      noarch
 Requires:       python-feedparser
 %description
