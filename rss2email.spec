@@ -1,6 +1,6 @@
 Name:           rss2email
 Version:        2.62
-Release:        %mkrel 1
+Release:        %mkrel 3
 Summary:        A script that send mail for rss feed news
 Group:          Networking/News
 License:        GPL
