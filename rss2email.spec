@@ -2,8 +2,7 @@ Name:           rss2email
 Version:        2.63
 Release:        %mkrel 1
 Summary:        Deliver news from RSS feeds to your smtp server as text or html mail
-
-Group:          Applications/Internet
+Group:          Networking/News
 License:        GPLv3
 URL:            http://rss2email.infogami.com/
 Source0:        http://rss2email.infogami.com/rss2email.py
