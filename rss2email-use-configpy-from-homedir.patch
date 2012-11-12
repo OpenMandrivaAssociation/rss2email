@@ -1,0 +1,13 @@
+--- rss2email.py.org	2007-03-23 23:35:20.000000000 +0100
++++ rss2email.py	2007-03-23 23:40:37.000000000 +0100
+@@ -199,8 +199,8 @@
+ ### Load the Options ###
+ 
+ # Read options from config file if present.
+-import sys
+-sys.path.append(".")
++import sys, os
++sys.path.append(os.path.join(os.environ["HOME"],".rss2email/"));
+ try:
+ 	from config import *
+ except:

@@ -1,0 +1,14 @@
+--- rss2email.py.org	2007-03-23 23:35:20.000000000 +0100
++++ rss2email.py	2007-03-25 09:42:39.000000000 +0200
+@@ -182,6 +182,11 @@
+ 		i, o = os.popen2(["/usr/sbin/sendmail", recipient])
+ 		i.write(msg_as_string)
+ 		i.close(); o.close()
++		pid, status = os.wait()
++		if status != 0:
++			print >>warn, ""
++			print >>warn, ('Fatal error: sendmail exited with code %s' % status)
++			sys.exit(1)
+ 		del i, o
+ 		return None
+ 
