@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>CHANGELOG (rss2email)</title>
+  <link href="http://files.infogami.com/styles/style.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.supertitle a {font: 28pt Georgia, "Times New Roman"; color: black; text-decoration: none;} 
+.subtitle {font: 18pt Georgia, "Times New Roman"; color: black;} 
+.myheader { background: #c3d9ff; padding-top: 1px; padding-left: 15px; margin: -1px; border-bottom: 4px solid #c3d9ff;} 
+body { background-color: white; height: auto;}
+#body { 
+  background-color: white;
+  padding: 0 15px 15px 15px; 
+}
+table#main { border-collapse: collapse; width: 95%; height: 100%; margin-left: 1%; margin-right: 1%; margin-top: 15px; margin-bottom: 15px;
+  border: solid 4px #c3d9ff;
+}
+#sidebar { width: 145px; padding: 5px; border-left: solid 4px #c3d9ff; background: #e0ecff;}
+.dateline { border-top: .2em solid #c3d9ff; color: #111111; } 
+.dateline a:link, .dateline a:visited { background-color: #c3d9ff; color: #111111; }
+</style>
+
+  
+
+</head>
+<body>
+<table id="main" border="0">
+<tr><td colspan=4>
+<div class="myheader">
+<p class="supertitle"><a href='/'>rss2email</a></p>
+<p class="subtitle">read newsfeeds from your email client</p>
+</div>
+</td></tr>
+
+<tr>
+<td id="body">
+<div class='page'>
+
+<p><strong>v2.63 (2008-06-13)</strong></p>
+
+<ul>
+<li>Bug-fix version and license change:
+<ul>
+<li>Licensed under GPL 2 &amp; 3 now</li>
+<li>Display feed number in warning and error message lines</li>
+<li>Fix for unicode handling problem with certain entry titles</li>
+</ul></li>
+</ul>
+
+<p><strong>v2.62 (2008-01-14)</strong></p>
+
+<ul>
+<li>Bug-fix version:
+<ul>
+<li>Simplified SunOS fix</li>
+<li>Local feeds (/home/user/file.xml) should work</li>
+</ul></li>
+</ul>
+
+<p><strong>v2.61 (2007-12-07)</strong></p>
+
+<ul>
+<li>Bug-fix version:
+<ul>
+<li>Now really compatible with SunOS</li>
+<li>Don't wrap long subject headers</li>
+<li>New parameter CHARSET_LIST to override or supplement the order in which charsets are tried against an entry</li>
+<li>Don't use blank content to generate id</li>
+<li>Using GMail as mail server should work</li>
+</ul></li>
+</ul>
+
+<p><strong>v2.60 (2006-08-25)</strong></p>
+
+<ul>
+<li>Small bug-fix version:
+<ul>
+<li>Now compatible with SunOS</li>
+<li>Correctly handle international character sets in email From</li>
+</ul></li>
+</ul>
+
+<p><strong>v2.59 (2006-06-09)</strong></p>
+
+<ul>
+<li><p>Finally added oft-requested support for enclosures. Any enclosures, such as a podcast MP3, will be listed under the entry URL</p></li>
+<li><p>Made feed timeout compatible with Python versions 2.2 and higher, instead of v2.4 only</p></li>
+<li><p>Added optional, configurable CSS styling to HTML mail. Set USE_CSS_STYLING=1 in your <strong>config.py</strong> to enable this. If you want to tweak the look, modify STYLE_SHEET.</p></li>
+<li><p>Improved empty feed checking</p></li>
+<li><p>Improved invalid feed messages</p></li>
+<li><p>Unfortunately, rss2email is no longer compatible with Python v2.1. Two of the most serious lingering issues with rss2email were waiting forever for non-responsive feeds and its inablility to properly handle feeds with international characters. To properly fix these once and for all, rss2email now depends on functionality that was not available until Python v2.2. Hopefully this does not unduly inconvenience anyone that has not yet upgraded to a more current version of Python.</p></li>
+</ul>
+
+<p><strong>v2.58 (2006-05-11)</strong></p>
+
+<ul>
+<li><p>Total rewrite of email code that should fix encoding problems</p></li>
+<li><p>Added configurable timeout for nonresponsive feeds</p></li>
+<li><p>Fixed incorrectly using text summary_detail instead of html content</p></li>
+<li><p>Fixed bug with deleting feed 0 if no default email was set</p></li>
+<li><p>Print name of feed that is being deleted</p></li>
+</ul>
+
+<p><strong>v2.57 (2006-04-07)</strong></p>
+
+<ul>
+<li><p>Integrated Joey Hess's patches</p>
+
+<ul>
+<li><p>First, a patch that makes delete more reliable, so it no longer allows
+you to remove the default email address ('feed' 0) and thereby hose
+your feed file, or 'remove' entries that don't exist without warning; and
+so it only says IDs have changed when they really have. Originally from
+http://bugs.debian.org/313101</p></li>
+<li><p>Next a patch that avoids a backtrace if there's no email address defined,
+and outputs a less scary error message.</p></li>
+<li><p>Next, a simple change to the usage; since the "email" subcommand always
+needs a parameter, don't mark it as optional.</p></li>
+<li><p>And, avoid a backtrace if the email subcommand does get run w/o a
+parameter.</p></li>
+<li><p>And also avoid backtraces if delete is run w/o a parameter. Also adds
+support for --help.</p></li>
+<li><p>Simple change, make a comment match reality (/usr/sbin/sendmail)</p></li>
+<li><p>This avoids another backtrace, this time if there's no feed file yet. [load()]</p></li>
+<li><p>Add a handler for the AttributeError exception, which feedparser can
+throw. Beats crashing..</p></li>
+<li><p>Next, four hunks that make it more robust if no default email address
+is set and feeds are added w/o an email address. This patch originally
+comes from http://bugs.debian.org/310485 which has some examples.</p></li>
+<li><p>Finally, this works around a bug in mimify that causes it to add a
+newline to the subject header if it contains very long words.
+Details at http://bugs.debian.org/320185. Note that Tatsuya Kinoshita
+has a larger patch torard the end of that bug report that deals with some
+other problems in this area, Aaron has seen that patch before and said it
+"looks pretty reasonable".</p></li>
+</ul></li>
+<li><p>add() catches error case on first feed add and no email address is set</p></li>
+<li><p>Made "emailaddress" consistent param label throughout</p></li>
+<li><p>Error message improvements</p></li>
+<li><p>Deleted problematic "if title" line</p></li>
+<li><p>Deleted space in front of SMTP_USER</p></li>
+<li><p>Only logs into SMTP server once</p></li>
+<li><p>Added exception handling around SMTP server connect and login attempt</p></li>
+<li><p>Broke contributors across multiple lines</p></li>
+</ul>
+
+<p><strong>v2.56 (2006-04-04)</strong></p>
+
+<ul>
+<li><p>SMTP AUTH support added</p></li>
+<li><p>Windows support</p></li>
+<li><p>Fixed bug with HTML in titles</p></li>
+</ul>
+
+<p class="dateline"><span style="border: 1px solid #c3d9ff; padding-left: 4px; ">
+    last updated 21 days ago
+    <a href="/CHANGELOG">#</a>
+</span>
+</p>
+</div>
+
+
+
+
+</td>
+
+<td id="sidebar">
+<p><a href="/">Home</a> <br />
+<a href="/blog">News</a> <br />
+<a href="/getstarted">Get Started</a> <br />
+<a href="/FAQ">FAQ</a> <br />
+<a href="/download">Download</a> <br />
+<a href="/webui">Web UI</a></p>
+
+<p><a title="Atom" href="http://rss2email.infogami.com/blog/atom.xml" style="border-style: solid; border-color: rgb(141, 141, 141) rgb(94, 94, 94); border-width: 1px; margin: 0pt; padding: 0pt 3px; background: rgb(157, 192, 229) none repeat scroll 0%; font-family: verdana,sans-serif; font-style: normal; font-variant: normal; font-weight: bold; font-size: 10px; line-height: normal; font-size-adjust: none; font-stretch: normal; color: rgb(0, 0, 0); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; text-decoration: none;">Atom</a></p>
+
+
+<p class="selfpromo"><a href="http://infogami.com/"><img src="http://files.infogami.com/infogami.com/infogami.alone.gif" alt="infogami" /></a></p>
+
+
+<p class="login"><a href="/_account/in?path=/CHANGELOG">log in</a></p>
+
+</td></tr></table>
+</body></html>
+

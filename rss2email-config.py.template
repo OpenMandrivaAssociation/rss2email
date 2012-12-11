@@ -1,0 +1,13 @@
+# Find some common used config options below; all can be found all and 
+# descriptions in the section titled "### Vaguely Customizable Options ###"
+# near the top of /usr/share/rss2email/rss2email.py
+
+DEFAULT_FROM="bozo@dev.null.invalid"
+HTML_MAIL=1
+SMTP_SEND=1
+SMTP_SERVER="localhost"
+AUTHREQUIRED=0
+SMTP_USER="username"
+SMTP_PASS="password"
+DATE_HEADER=0
+# PROXY=""

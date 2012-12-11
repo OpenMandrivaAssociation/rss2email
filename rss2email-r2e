@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ ! -e "${HOME}/.rss2email" ]
+then
+	mkdir "${HOME}/.rss2email"
+fi
+
+if [ ! -e "${HOME}/.rss2email/config.py" ] && [ -e /usr/share/rss2email/config.py.template ]
+then
+	cp -a "/usr/share/rss2email/config.py.template" "${HOME}/.rss2email/config.py"
+fi
+
+if [ "${1}" = "--feedext" ] && [ "${2}" ]
+then
+	fileext="${2}"
+	shift 2
+	exec python /usr/share/rss2email/rss2email.py ${HOME}/.rss2email/feeds.dat."${fileext}" "$@"
+else
+	exec python /usr/share/rss2email/rss2email.py ${HOME}/.rss2email/feeds.dat "$@"
+fi
+
+
