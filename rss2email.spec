@@ -15,7 +15,7 @@ Requires:       python3dist(pyxdg)
 BuildRequires:  python-devel
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(feedparser)
-BuildRequires:  python3dist(html2text)
+BuildRequires:  pythonegg(html2text)
 BuildRequires:  python3dist(beautifulsoup4)
 
 %description
