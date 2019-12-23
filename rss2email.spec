@@ -42,9 +42,6 @@ rm -rf *.egg-info/
 %license COPYING
 %doc AUTHORS CHANGELOG README*
 %{_bindir}/r2e
-%{_bindir}/r2e-migrate
-%{_mandir}/man1/r2e.1*
-%{_mandir}/man1/r2e-migrate.1*
 %{python_sitelib}/%{name}/
 %{python_sitelib}/%{name}-%{version}-py%{python3_version}.egg-info/
 
