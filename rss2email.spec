@@ -37,17 +37,10 @@ rm -rf *.egg-info/
 install -Dpm644 %{SOURCE3} README.urpmi.update
 
 %build
-%py3_build
+%py_build
 
 %install
-%py3_install
-
-# man pages
-install -D -m 644 -p r2e.1 %{buildroot}%{_mandir}/man1/r2e.1
-
-# migrate scripts
-install -D -m 755 -p %{SOURCE1} %{buildroot}%{_bindir}/r2e-migrate
-install -D -m 644 -p %{SOURCE2} %{buildroot}%{_mandir}/man1/r2e-migrate.1
+%py_install
 
 %files
 %license COPYING
@@ -56,8 +49,8 @@ install -D -m 644 -p %{SOURCE2} %{buildroot}%{_mandir}/man1/r2e-migrate.1
 %{_bindir}/r2e-migrate
 %{_mandir}/man1/r2e.1*
 %{_mandir}/man1/r2e-migrate.1*
-%{python3_sitelib}/%{name}/
-%{python3_sitelib}/%{name}-%{version}-py%{python3_version}.egg-info/
+%{python_sitelib}/%{name}/
+%{python_sitelib}/%{name}-%{version}-py%{python3_version}.egg-info/
 
 %changelog
 * Tue Sep 15 2009 Thierry Vignaud <tvignaud@mandriva.com> 2.65-2mdv2010.0
