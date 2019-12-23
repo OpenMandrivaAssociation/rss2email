@@ -5,9 +5,7 @@ Summary:        Deliver news from RSS feeds to your smtp server as text or html 
 Group:          Networking/News
 License:        GPLv3
 URL:            http://rss2email.infogami.com/
-
-# Fedora variant of http://lindsey.smith.googlepages.com/r2e
-Source3:        rss2email-r2e
+Source0:        https://files.pythonhosted.org/packages/f1/fd/7acf50ee9d70c9645dcbca74d3a1c98c40e37c7d12db61c3f86385d580e6/rss2email-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -33,8 +31,6 @@ See the man page r2e for details how to set rss2email up.
 
 # drop bundled egg-info
 rm -rf *.egg-info/
-
-install -Dpm644 %{SOURCE3} README.urpmi.update
 
 %build
 %py_build
