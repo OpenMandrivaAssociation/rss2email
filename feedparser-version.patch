@@ -1,0 +1,12 @@
+diff -uraN rss2email-3.12.3/setup.py omv-rss2email-3.12.3/setup.py
+--- rss2email-3.12.3/setup.py	2021-03-19 01:33:40.000000000 +0100
++++ omv-rss2email-3.12.3/setup.py	2021-03-26 20:07:27.151702260 +0100
+@@ -65,7 +65,7 @@
+     scripts=['r2e'],
+     provides=['rss2email'],
+     install_requires=[
+-        'feedparser>=5.0.1, <6.0',
++        'feedparser>=5.0.1, <7.0',
+         'html2text>=3.0.1',
+         ],
+     )
