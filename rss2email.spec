@@ -1,5 +1,5 @@
 Name:           rss2email
-Version:	3.13
+Version:	3.13.1
 Release:	1
 Summary:        Deliver news from RSS feeds to your smtp server as text or html mail
 Group:          Networking/News
