@@ -13,6 +13,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:       python-feedparser
 Requires:       python3dist(pyxdg)
 
+BuildRequires:  python3dist(wheel)
+BuildRequires:  python3dist(pip)
 BuildRequires:  python-devel
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(feedparser)
