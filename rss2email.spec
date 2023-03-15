@@ -47,7 +47,7 @@ rm -rf *.egg-info/
 %doc AUTHORS CHANGELOG README*
 %{_bindir}/r2e
 %{python_sitelib}/%{name}/
-%{python_sitelib}/%{name}-%{version}-py%{python3_version}.egg-info/
+#{python_sitelib}/%{name}-%{version}-py%{python3_version}.egg-info/
 
 %changelog
 * Tue Sep 15 2009 Thierry Vignaud <tvignaud@mandriva.com> 2.65-2mdv2010.0
