@@ -15,6 +15,7 @@ Requires:       python3dist(pyxdg)
 
 BuildRequires:  python3dist(wheel)
 BuildRequires:  python3dist(pip)
+BuildRequires:  python3dist(poetry)
 BuildRequires:  python-devel
 BuildRequires:  python3dist(setuptools)
 BuildRequires:  python3dist(feedparser)
