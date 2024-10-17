@@ -4,7 +4,7 @@ Release:	1
 Summary:        Deliver news from RSS feeds to your smtp server as text or html mail
 Group:          Networking/News
 License:        GPLv3
-URL:            http://rss2email.infogami.com/
+URL:            https://rss2email.infogami.com/
 Source0:        https://files.pythonhosted.org/packages/source/r/rss2email/rss2email-%{version}.tar.gz
 #Patch0:         feedparser-version.patch
 BuildArch:      noarch
