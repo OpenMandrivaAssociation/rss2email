@@ -1,6 +1,6 @@
 Name:           rss2email
 Version:	3.14
-Release:	2
+Release:	3
 Summary:        Deliver news from RSS feeds to your smtp server as text or html mail
 Group:          Networking/News
 License:        GPLv3
@@ -10,17 +10,18 @@ Source0:        https://files.pythonhosted.org/packages/source/r/rss2email/rss2e
 BuildArch:      noarch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:       python-feedparser
-Requires:       python3dist(pyxdg)
+Requires:       python%{pyver}dist(feedparser)
+Requires:       python%{pyver}dist(pyxdg)
+Requires:       python%{pyver}dist(html2text)
 
-BuildRequires:  python3dist(wheel)
-BuildRequires:  python3dist(pip)
-BuildRequires:  python3dist(poetry)
-BuildRequires:  python-devel
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3dist(feedparser)
-BuildRequires:  pythonegg(html2text)
-BuildRequires:  python3dist(beautifulsoup4)
+BuildRequires:  pkgconfig(python3)
+BuildRequires:  python%{pyver}dist(wheel)
+BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(poetry-core)
+BuildRequires:  python%{pyver}dist(setuptools)
+BuildRequires:  python%{pyver}dist(feedparser)
+BuildRequires:  python%{pyver}dist(html2text)
+BuildRequires:  python%{pyver}dist(beautifulsoup4)
 
 %description
 rss2email lets you subscribe to a list of XML newsfeeds (RSS or Atom). It can
@@ -35,6 +36,10 @@ See the man page r2e for details how to set rss2email up.
 
 # drop bundled egg-info
 rm -rf *.egg-info/
+# Upstream sdist filename is 3.14, but poetry metadata still says 3.12.2
+# and the old poetry.masonry.api backend is gone.
+sed -i 's/^version = "3.12.2"/version = "%{version}"/' pyproject.toml
+sed -i 's/poetry\.masonry\.api/poetry.core.masonry.api/' pyproject.toml
 
 %build
 %py_build
@@ -48,7 +53,7 @@ rm -rf *.egg-info/
 %{_bindir}/r2e
 %{python_sitelib}/%{name}/
 #{python_sitelib}/%{name}-%{version}-py%{python3_version}.egg-info/
-%{python_sitelib}/rss2email-3.12.2.dist-info/
+%{python_sitelib}/rss2email-%{version}.dist-info/
 
 %changelog
 * Tue Sep 15 2009 Thierry Vignaud <tvignaud@mandriva.com> 2.65-2mdv2010.0
